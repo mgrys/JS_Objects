@@ -1,3 +1,4 @@
+//excercise 10.4
 function Phone(brand, ram, battery, price, color) {
   this.brand = brand;
   this.ram = ram;
@@ -21,10 +22,10 @@ Phone.prototype.printInfo = function() {
   );
 };
 Phone.prototype.index = function() {
-    var value = 0;
-    value = Math.round(this.battery / this.price);
-    console.log("Factor price vs battery capacity is " +value);
-}
+  var value = 0;
+  value = Math.round(this.battery / this.price);
+  console.log("Factor price vs battery capacity is " + value);
+};
 var Redmi4X = new Phone("Xiaomi", "3GB", 4100, 650, "White");
 var Samsung8 = new Phone("Samsung", "4GB", 3500, 3500);
 var Nokia4 = new Phone("Nokia", "2GB", 2900, 1000, "Silver");
@@ -33,3 +34,21 @@ Redmi4X.printInfo();
 Redmi4X.index();
 Samsung8.printInfo();
 Samsung8.index();
+//excercise 10.5
+function Button(text) {
+  this.text = text || "Default Button";
+}
+Button.prototype = {
+  create: function() {
+    var self = this;
+    this.$element = $ (`<button>`);
+    this.$element.text(this.text);
+    this.$element.click(function() {
+      alert(self.text);
+    });
+    $('body').append(this.$element);
+  }
+};
+var btn1 = new Button('Nowy przycisk');
+btn1.create();
+
